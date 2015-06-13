@@ -1,0 +1,37 @@
+body {
+    margin: 0% 0% 0% 0%;
+    height: 100vh;
+    background-color: #30F0FF;
+    }
+
+#header_text {
+    margin: 0% 0% 0% 0%;
+    padding: 2% 0;
+    background-color: #E0E0FF;
+}
+
+.button_bar {
+    background-color: #0000FF;
+    padding: 0.1%;
+}
+
+.button {
+    background-color: #0000FF;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: bold;
+    padding: 0.5% 1%;
+    text-align: center;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.button:hover {
+    background-color: #2050FF;
+}
+
+canvas {
+    width: 100%;
+    height: 50%;
+}
