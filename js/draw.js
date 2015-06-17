@@ -12,7 +12,6 @@ var img_refs;
 var fade_timer = null;
 
 var claims = [];
-var max_claims = [3, 1, 3, 5, 1, 0, 3, 1, 2];
 
 var current_state;
 var stack_i;
@@ -289,7 +288,7 @@ function changeState(newState) {
             height: 50,
             funct: claim_button
         });
-        createText(claims[0].toString(), "30px sans-serif", 0);
+        createText(claims[0], "30px sans-serif", 0);
         texts[0].x = 502;
         texts[0].y = 65;
         
@@ -300,7 +299,7 @@ function changeState(newState) {
             height: 50,
             funct: claim_button
         });
-        createText(claims[1].toString(), "30px sans-serif", 0);
+        createText(claims[1], "30px sans-serif", 0);
         texts[1].x = 552;
         texts[1].y = 65;
         
@@ -311,7 +310,7 @@ function changeState(newState) {
             height: 50,
             funct: claim_button
         });
-        createText(claims[2].toString(), "30px sans-serif", 0);
+        createText(claims[2], "30px sans-serif", 0);
         texts[2].x = 602;
         texts[2].y = 65;
         
@@ -322,7 +321,7 @@ function changeState(newState) {
             height: 50,
             funct: claim_button
         });
-        createText(claims[3].toString(), "30px sans-serif", 0);
+        createText(claims[3], "30px sans-serif", 0);
         texts[3].x = 502;
         texts[3].y = 115;
         
@@ -333,7 +332,7 @@ function changeState(newState) {
             height: 50,
             funct: claim_button
         });
-        createText(claims[4].toString(), "30px sans-serif", 0);
+        createText(claims[4], "30px sans-serif", 0);
         texts[4].x = 552;
         texts[4].y = 115;
         
@@ -344,7 +343,7 @@ function changeState(newState) {
             height: 50,
             funct: claim_button
         });
-        createText(claims[5].toString(), "30px sans-serif", 0);
+        createText(claims[5], "30px sans-serif", 0);
         texts[5].x = 602;
         texts[5].y = 115;
         
@@ -355,7 +354,7 @@ function changeState(newState) {
             height: 50,
             funct: claim_button
         });
-        createText(claims[6].toString(), "30px sans-serif", 0);
+        createText(claims[6], "30px sans-serif", 0);
         texts[6].x = 502;
         texts[6].y = 165;
         
@@ -366,7 +365,7 @@ function changeState(newState) {
             height: 50,
             funct: claim_button
         });
-        createText(claims[7].toString(), "30px sans-serif", 0);
+        createText(claims[7], "30px sans-serif", 0);
         texts[7].x = 552;
         texts[7].y = 165;
         
@@ -377,44 +376,44 @@ function changeState(newState) {
             height: 50,
             funct: claim_button
         });
-        createText(claims[8].toString(), "30px sans-serif", 0);
+        createText(claims[8], "30px sans-serif", 0);
         texts[8].x = 602;
         texts[8].y = 165;
         
         
-        createText(max_claims[0].toString(), "30px sans-serif", 0);
+        createText(demandMatrix[0][0], "30px sans-serif", 0);
         texts[9].x = 502;
         texts[9].y = 285;
         
-        createText(max_claims[1].toString(), "30px sans-serif", 0);
+        createText(demandMatrix[0][1], "30px sans-serif", 0);
         texts[10].x = 552;
         texts[10].y = 285;
         
-        createText(max_claims[2].toString(), "30px sans-serif", 0);
+        createText(demandMatrix[0][2], "30px sans-serif", 0);
         texts[11].x = 602;
         texts[11].y = 285;
         
-        createText(max_claims[3].toString(), "30px sans-serif", 0);
+        createText(demandMatrix[1][0], "30px sans-serif", 0);
         texts[12].x = 502;
         texts[12].y = 335;
         
-        createText(max_claims[4].toString(), "30px sans-serif", 0);
+        createText(demandMatrix[1][1], "30px sans-serif", 0);
         texts[13].x = 552;
         texts[13].y = 335;
         
-        createText(max_claims[5].toString(), "30px sans-serif", 0);
+        createText(demandMatrix[1][2], "30px sans-serif", 0);
         texts[14].x = 602;
         texts[14].y = 335;
         
-        createText(max_claims[6].toString(), "30px sans-serif", 0);
+        createText(demandMatrix[2][0], "30px sans-serif", 0);
         texts[15].x = 502;
         texts[15].y = 385;
         
-        createText(max_claims[7].toString(), "30px sans-serif", 0);
+        createText(demandMatrix[2][1], "30px sans-serif", 0);
         texts[16].x = 552;
         texts[16].y = 385;
         
-        createText(max_claims[8].toString(), "30px sans-serif", 0);
+        createText(demandMatrix[2][2], "30px sans-serif", 0);
         texts[17].x = 602;
         texts[17].y = 385;
         
@@ -445,23 +444,23 @@ function changeState(newState) {
         texts[25].x = 212;
         texts[25].y = 65;
         
-        createText(5, "30px sans-serif", 0);
+        createText(E[0], "30px sans-serif", 0);
         texts[26].x = 112;
         texts[26].y = 165;
-        createText(2, "30px sans-serif", 0);
+        createText(E[1], "30px sans-serif", 0);
         texts[27].x = 162;
         texts[27].y = 165;
-        createText(3, "30px sans-serif", 0);
+        createText(E[2], "30px sans-serif", 0);
         texts[28].x = 212;
         texts[28].y = 165;
         
-        createText(5, "30px sans-serif", 0);
+        createText(E[0], "30px sans-serif", 0);
         texts[29].x = 112;
         texts[29].y = 265;
-        createText(2, "30px sans-serif", 0);
+        createText(E[1], "30px sans-serif", 0);
         texts[30].x = 162;
         texts[30].y = 265;
-        createText(3, "30px sans-serif", 0);
+        createText(E[2], "30px sans-serif", 0);
         texts[31].x = 212;
         texts[31].y = 265;
         
@@ -502,78 +501,79 @@ function changeState(newState) {
         objects[4].x = 0;
         objects[4].y = 200;
         
-        createText(stateStack[stack_i].allocationMatrix.elements[0][0], "30px sans-serif", 0);
+        createText(stateStack[stack_i].allocationMatrix[0][0], "30px sans-serif", 0);
         texts[0].x = 502;
         texts[0].y = 65;
         
-        createText(stateStack[stack_i].allocationMatrix.elements[0][1], "30px sans-serif", 0);
+        createText(stateStack[stack_i].allocationMatrix[0][1], "30px sans-serif", 0);
         texts[1].x = 552;
         texts[1].y = 65;
         
-        createText(stateStack[stack_i].allocationMatrix.elements[0][2], "30px sans-serif", 0);
+        createText(stateStack[stack_i].allocationMatrix[0][2], "30px sans-serif", 0);
         texts[2].x = 602;
         texts[2].y = 65;
         
-        createText(stateStack[stack_i].allocationMatrix.elements[1][0], "30px sans-serif", 0);
+        createText(stateStack[stack_i].allocationMatrix[1][0], "30px sans-serif", 0);
         texts[3].x = 502;
         texts[3].y = 115;
         
-        createText(stateStack[stack_i].allocationMatrix.elements[1][1], "30px sans-serif", 0);
+        createText(stateStack[stack_i].allocationMatrix[1][1], "30px sans-serif", 0);
         texts[4].x = 552;
         texts[4].y = 115;
         
-        createText(stateStack[stack_i].allocationMatrix.elements[1][2], "30px sans-serif", 0);
+        createText(stateStack[stack_i].allocationMatrix[1][2], "30px sans-serif", 0);
         texts[5].x = 602;
         texts[5].y = 115;
         
-        createText(stateStack[stack_i].allocationMatrix.elements[2][0], "30px sans-serif", 0);
+        createText(stateStack[stack_i].allocationMatrix[2][0], "30px sans-serif", 0);
         texts[6].x = 502;
         texts[6].y = 165;
         
-        createText(stateStack[stack_i].allocationMatrix.elements[2][1], "30px sans-serif", 0);
+        createText(stateStack[stack_i].allocationMatrix[2][1], "30px sans-serif", 0);
         texts[7].x = 552;
         texts[7].y = 165;
 
-        createText(stateStack[stack_i].allocationMatrix.elements[2][2], "30px sans-serif", 0);
+        createText(stateStack[stack_i].allocationMatrix[2][2], "30px sans-serif", 0);
         texts[8].x = 602;
         texts[8].y = 165;
         
         
-        createText(max_claims[0].toString(), "30px sans-serif", 0);
+        createText(demandMatrix[0][0], "30px sans-serif", 0);
         texts[9].x = 502;
         texts[9].y = 285;
         
-        createText(max_claims[1].toString(), "30px sans-serif", 0);
+        createText(demandMatrix[0][1], "30px sans-serif", 0);
         texts[10].x = 552;
         texts[10].y = 285;
         
-        createText(max_claims[2].toString(), "30px sans-serif", 0);
+        createText(demandMatrix[0][2], "30px sans-serif", 0);
         texts[11].x = 602;
         texts[11].y = 285;
         
-        createText(max_claims[3].toString(), "30px sans-serif", 0);
+        createText(demandMatrix[1][0], "30px sans-serif", 0);
         texts[12].x = 502;
         texts[12].y = 335;
         
-        createText(max_claims[4].toString(), "30px sans-serif", 0);
+        createText(demandMatrix[1][1], "30px sans-serif", 0);
         texts[13].x = 552;
         texts[13].y = 335;
         
-        createText(max_claims[5].toString(), "30px sans-serif", 0);
+        createText(demandMatrix[1][2], "30px sans-serif", 0);
         texts[14].x = 602;
         texts[14].y = 335;
         
-        createText(max_claims[6].toString(), "30px sans-serif", 0);
+        createText(demandMatrix[2][0], "30px sans-serif", 0);
         texts[15].x = 502;
         texts[15].y = 385;
         
-        createText(max_claims[7].toString(), "30px sans-serif", 0);
+        createText(demandMatrix[2][1], "30px sans-serif", 0);
         texts[16].x = 552;
         texts[16].y = 385;
         
-        createText(max_claims[8].toString(), "30px sans-serif", 0);
+        createText(demandMatrix[2][2], "30px sans-serif", 0);
         texts[17].x = 602;
         texts[17].y = 385;
+        
         
         createText(get_string.allocated_table, "18px sans-serif", 0);
         texts[18].x = 345;
@@ -596,21 +596,21 @@ function changeState(newState) {
         texts[22].x = 130;
         texts[22].y = 225;
         
-        createText(0, "30px sans-serif", 0);
+        createText(P[0], "30px sans-serif", 0);
         texts[23].x = 112;
         texts[23].y = 65;
         texts[23].visibility = false;
         setTimeout(function() {
             texts[23].visibility = true;
         }, 500);
-        createText(0, "30px sans-serif", 0);
+        createText(P[1], "30px sans-serif", 0);
         texts[24].x = 162;
         texts[24].y = 65;
         texts[24].visibility = false;
         setTimeout(function() {
             texts[24].visibility = true;
         }, 500);
-        createText(0, "30px sans-serif", 0);
+        createText(P[2], "30px sans-serif", 0);
         texts[25].x = 212;
         texts[25].y = 65;
         texts[25].visibility = false;
@@ -618,23 +618,23 @@ function changeState(newState) {
             texts[25].visibility = true;
         }, 500);
         
-        createText(0, "30px sans-serif", 0);
+        createText(A[0], "30px sans-serif", 0);
         texts[26].x = 112;
         texts[26].y = 165;
-        createText(0, "30px sans-serif", 0);
+        createText(A[1], "30px sans-serif", 0);
         texts[27].x = 162;
         texts[27].y = 165;
-        createText(0, "30px sans-serif", 0);
+        createText(A[2], "30px sans-serif", 0);
         texts[28].x = 212;
         texts[28].y = 165;
         
-        createText(0, "30px sans-serif", 0);
+        createText(E[0], "30px sans-serif", 0);
         texts[29].x = 112;
         texts[29].y = 265;
-        createText(0, "30px sans-serif", 0);
+        createText(E[1], "30px sans-serif", 0);
         texts[30].x = 162;
         texts[30].y = 265;
-        createText(0, "30px sans-serif", 0);
+        createText(E[2], "30px sans-serif", 0);
         texts[31].x = 212;
         texts[31].y = 265;
         
@@ -662,7 +662,6 @@ function changeState(newState) {
         texts[36].y = 392;
     }
     else if(newState == "BANKER_1_FAIL_STATE") {
-        alert(stack_i);
         num_of_images = 7;
         
         loadImage("allocated_table");
@@ -685,39 +684,39 @@ function changeState(newState) {
         objects[4].x = 0;
         objects[4].y = 200;
         
-        createText(stateStack[stack_i].allocationMatrix.elements[0][0], "30px sans-serif", 0);
+        createText(stateStack[stack_i].allocationMatrix[0][0], "30px sans-serif", 0);
         texts[0].x = 502;
         texts[0].y = 65;
         
-        createText(stateStack[stack_i].allocationMatrix.elements[0][1], "30px sans-serif", 0);
+        createText(stateStack[stack_i].allocationMatrix[0][1], "30px sans-serif", 0);
         texts[1].x = 552;
         texts[1].y = 65;
         
-        createText(stateStack[stack_i].allocationMatrix.elements[0][2], "30px sans-serif", 0);
+        createText(stateStack[stack_i].allocationMatrix[0][2], "30px sans-serif", 0);
         texts[2].x = 602;
         texts[2].y = 65;
         
-        createText(stateStack[stack_i].allocationMatrix.elements[1][0], "30px sans-serif", 0);
+        createText(stateStack[stack_i].allocationMatrix[1][0], "30px sans-serif", 0);
         texts[3].x = 502;
         texts[3].y = 115;
         
-        createText(stateStack[stack_i].allocationMatrix.elements[1][1], "30px sans-serif", 0);
+        createText(stateStack[stack_i].allocationMatrix[1][1], "30px sans-serif", 0);
         texts[4].x = 552;
         texts[4].y = 115;
         
-        createText(stateStack[stack_i].allocationMatrix.elements[1][2], "30px sans-serif", 0);
+        createText(stateStack[stack_i].allocationMatrix[1][2], "30px sans-serif", 0);
         texts[5].x = 602;
         texts[5].y = 115;
         
-        createText(stateStack[stack_i].allocationMatrix.elements[2][0], "30px sans-serif", 0);
+        createText(stateStack[stack_i].allocationMatrix[2][0], "30px sans-serif", 0);
         texts[6].x = 502;
         texts[6].y = 165;
         
-        createText(stateStack[stack_i].allocationMatrix.elements[2][1], "30px sans-serif", 0);
+        createText(stateStack[stack_i].allocationMatrix[2][1], "30px sans-serif", 0);
         texts[7].x = 552;
         texts[7].y = 165;
         
-        createText(stateStack[stack_i].allocationMatrix.elements[2][2], "30px sans-serif", 0);
+        createText(stateStack[stack_i].allocationMatrix[2][2], "30px sans-serif", 0);
         texts[8].x = 602;
         texts[8].y = 165;
         
@@ -854,39 +853,39 @@ function changeState(newState) {
         objects[4].x = 0;
         objects[4].y = 200;
         
-        createText(stateStack[stack_i].allocationMatrix.elements[0][0], "30px sans-serif", 0);
+        createText(stateStack[stack_i].allocationMatrix[0][0], "30px sans-serif", 0);
         texts[0].x = 502;
         texts[0].y = 65;
         
-        createText(stateStack[stack_i].allocationMatrix.elements[0][1], "30px sans-serif", 0);
+        createText(stateStack[stack_i].allocationMatrix[0][1], "30px sans-serif", 0);
         texts[1].x = 552;
         texts[1].y = 65;
         
-        createText(stateStack[stack_i].allocationMatrix.elements[0][2], "30px sans-serif", 0);
+        createText(stateStack[stack_i].allocationMatrix[0][2], "30px sans-serif", 0);
         texts[2].x = 602;
         texts[2].y = 65;
         
-        createText(stateStack[stack_i].allocationMatrix.elements[1][0], "30px sans-serif", 0);
+        createText(stateStack[stack_i].allocationMatrix[1][0], "30px sans-serif", 0);
         texts[3].x = 502;
         texts[3].y = 115;
         
-        createText(stateStack[stack_i].allocationMatrix.elements[1][1], "30px sans-serif", 0);
+        createText(stateStack[stack_i].allocationMatrix[1][1], "30px sans-serif", 0);
         texts[4].x = 552;
         texts[4].y = 115;
         
-        createText(stateStack[stack_i].allocationMatrix.elements[1][2], "30px sans-serif", 0);
+        createText(stateStack[stack_i].allocationMatrix[1][2], "30px sans-serif", 0);
         texts[5].x = 602;
         texts[5].y = 115;
         
-        createText(stateStack[stack_i].allocationMatrix.elements[2][0], "30px sans-serif", 0);
+        createText(stateStack[stack_i].allocationMatrix[2][0], "30px sans-serif", 0);
         texts[6].x = 502;
         texts[6].y = 165;
         
-        createText(stateStack[stack_i].allocationMatrix.elements[2][1], "30px sans-serif", 0);
+        createText(stateStack[stack_i].allocationMatrix[2][1], "30px sans-serif", 0);
         texts[7].x = 552;
         texts[7].y = 165;
         
-        createText(stateStack[stack_i].allocationMatrix.elements[2][2], "30px sans-serif", 0);
+        createText(stateStack[stack_i].allocationMatrix[2][2], "30px sans-serif", 0);
         texts[8].x = 602;
         texts[8].y = 165;
         
@@ -996,13 +995,12 @@ function changeState(newState) {
 function next_button() {
     if(current_state == "INIT_STATE") {
         
-        var allocationMatrix = new Matrix( 3, 3 ); // Matriz que indica quantos recursos de cada tipo estão alocados a um determinado processo.
+
+        allocationMatrix[0] = [ claims[0], claims[1], claims[2] ];
+        allocationMatrix[1] = [ claims[3], claims[4], claims[5] ];
+        allocationMatrix[2] = [ claims[6], claims[7], claims[8] ];
     
-        allocationMatrix.elements[0] = [ claims[0], claims[1], claims[2] ];
-        allocationMatrix.elements[1] = [ claims[3], claims[4], claims[5] ];
-        allocationMatrix.elements[2] = [ claims[6], claims[7], claims[8] ];
-    
-        banker(allocationMatrix);
+        banker();
         
         stack_i = 0;
     
@@ -1040,8 +1038,11 @@ function previous_button() {
 function claim_button(i) {
     claims[i] += 1;
     
-    if(claims[i] > max_claims[i]) {
-        claims[i] = max_claims[i];
+    var j = Math.floor(i/demandMatrix[0].length);
+    var k = i % demandMatrix[0].length;
+    
+    if(claims[i] > demandMatrix[j][k]) {
+        claims[i] = demandMatrix[j][k];
     }
     
     texts[i].value = claims[i];

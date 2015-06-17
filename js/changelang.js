@@ -43,6 +43,9 @@ function updatelang() {
 	$("#home_button").text(get_string.home_button);
 	$("#home_button").attr("href", "index.html?lang="+language);
 	
+	$("#theory_button").text(get_string.theory_button);
+	$("#theory_button").attr("href", "theory.html?lang="+language);
+	
 	$("#credits_button").text(get_string.credits_button);
 	$("#credits_button").attr("href", "credits.html?lang="+language);
 	
@@ -51,11 +54,11 @@ function updatelang() {
 	
 	$("#banker_canvas").text(get_string.html5_error);
 	
-	$("#credits_1").text(get_string.credits_1);
-	$("#credits_2").text(get_string.credits_2);
-	$("#credits_3").text(get_string.credits_3);
-	$("#credits_4").text(get_string.credits_4);
-	$("#credits_5").text(get_string.credits_5);
+	$("#authors_1").text(get_string.authors_1);
+	$("#authors_2").text(get_string.authors_2);
+	$("#authors_3").text(get_string.authors_3);
+	$("#authors_4").text(get_string.authors_4);
+	$("#authors_5").text(get_string.authors_5);
 	
 	$("#ack_1").text(get_string.ack_1);
 	$("#ack_2").text(get_string.ack_2);
