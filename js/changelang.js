@@ -1,6 +1,10 @@
 var get_string = null;
 var language = null;
 function changelang() {
+	if(get_string != null) {
+		return;
+	}
+	
 	var query = location.search.substring(1);
 	var searchPat = /lang=\w{2}/;
 	var position = query.search(searchPat);
