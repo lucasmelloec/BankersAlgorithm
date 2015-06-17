@@ -55,6 +55,7 @@ function updatelang() {
 	$("#credits_2").text(get_string.credits_2);
 	$("#credits_3").text(get_string.credits_3);
 	$("#credits_4").text(get_string.credits_4);
+	$("#credits_5").text(get_string.credits_5);
 	
 	$("#ack_1").text(get_string.ack_1);
 	$("#ack_2").text(get_string.ack_2);
