@@ -968,6 +968,104 @@ function changeState(newState) {
         loadButton("previous_button", previous_button);
         buttons[0].x = 430;
         buttons[0].y = 430;
+        
+        createText(get_string.banker_end1, "18px sans-serif", 0);
+        texts[32].x = 0;
+        texts[32].y = 340;
+        createText(get_string.banker_end2, "18px sans-serif", 0);
+        texts[33].x = 0;
+        texts[33].y = 358;
+        createText(get_string.banker_end3, "18px sans-serif", 0);
+        texts[34].x = 0;
+        texts[34].y = 376;
+        createText(get_string.banker_end4, "18px sans-serif", 0);
+        texts[35].x = 0;
+        texts[35].y = 394;
+        createText(get_string.banker_end5, "18px sans-serif", 0);
+        texts[36].x = 0;
+        texts[36].y = 412;
+    }
+    else if (newState == "BANKER_IMPOSSIBLE") {
+        standardLoad();
+        
+        num_of_images += 2;
+        
+        createText(stateStack[stack_i].allocationMatrix[0][0], "30px sans-serif", 0);
+        texts[17].x = 502;
+        texts[17].y = 65;
+        
+        createText(stateStack[stack_i].allocationMatrix[0][1], "30px sans-serif", 0);
+        texts[18].x = 552;
+        texts[18].y = 65;
+        
+        createText(stateStack[stack_i].allocationMatrix[0][2], "30px sans-serif", 0);
+        texts[19].x = 602;
+        texts[19].y = 65;
+        
+        createText(stateStack[stack_i].allocationMatrix[1][0], "30px sans-serif", 0);
+        texts[20].x = 502;
+        texts[20].y = 115;
+        
+        createText(stateStack[stack_i].allocationMatrix[1][1], "30px sans-serif", 0);
+        texts[21].x = 552;
+        texts[21].y = 115;
+        
+        createText(stateStack[stack_i].allocationMatrix[1][2], "30px sans-serif", 0);
+        texts[22].x = 602;
+        texts[22].y = 115;
+        
+        createText(stateStack[stack_i].allocationMatrix[2][0], "30px sans-serif", 0);
+        texts[23].x = 502;
+        texts[23].y = 165;
+        
+        createText(stateStack[stack_i].allocationMatrix[2][1], "30px sans-serif", 0);
+        texts[24].x = 552;
+        texts[24].y = 165;
+        
+        createText(stateStack[stack_i].allocationMatrix[2][2], "30px sans-serif", 0);
+        texts[25].x = 602;
+        texts[25].y = 165;
+        
+        createText(stateStack[stack_i].P[0], "30px sans-serif", 0);
+        texts[26].x = 112;
+        texts[26].y = 65;
+        
+        createText(stateStack[stack_i].P[1], "30px sans-serif", 0);
+        texts[27].x = 162;
+        texts[27].y = 65;
+
+        createText(stateStack[stack_i].P[2], "30px sans-serif", 0);
+        texts[28].x = 212;
+        texts[28].y = 65;
+        
+        createText(stateStack[stack_i].A[0], "30px sans-serif", 0);
+        texts[29].x = 112;
+        texts[29].y = 165;
+        
+        createText(stateStack[stack_i].A[1], "30px sans-serif", 0);
+        texts[30].x = 162;
+        texts[30].y = 165;
+        
+        createText(stateStack[stack_i].A[2], "30px sans-serif", 0);
+        texts[31].x = 212;
+        texts[31].y = 165;
+    
+        loadButton("next_button", next_button);
+        buttons[0].x = 540;
+        buttons[0].y = 430;
+        loadButton("previous_button", previous_button);
+        buttons[1].x = 430;
+        buttons[1].y = 430;
+        
+        createText(get_string.banker_imp1, "18px sans-serif", 0);
+        texts[32].x = 0;
+        texts[32].y = 340;
+        createText(get_string.banker_imp2, "18px sans-serif", 0);
+        texts[33].x = 0;
+        texts[33].y = 358;
+        createText(get_string.banker_imp3, "18px sans-serif", 0);
+        texts[34].x = 0;
+        texts[34].y = 376;
     }
     else {
         // Estado Inválido

@@ -41,6 +41,20 @@ function banker() {
         for ( i = 0; i < local_AllocMatrix.length; i++ ) {
             local_P[j] += local_AllocMatrix[i][j];
         }
+        if(local_P[j] > E[j]) {
+            stateStack.push({
+                P: JSON.parse(JSON.stringify(P)),
+                A: JSON.parse(JSON.stringify(A)),
+                allocationMatrix: JSON.parse(JSON.stringify(allocationMatrix)),
+                current_process: null,
+                iteraction: null,
+                state: "BANKER_IMPOSSIBLE"
+            });
+            
+            allocationMatrix = JSON.parse(JSON.stringify(previousMatrix));
+            
+            return false;
+        }
     }
 
     // Inicialização de local_A a partir de E e local_P
@@ -142,20 +156,22 @@ function banker() {
         
         iteraction += 1;
         
-        stateStack.push({
-            P: JSON.parse(JSON.stringify(local_P)),
-            A: JSON.parse(JSON.stringify(local_A)),
-            allocationMatrix: JSON.parse(JSON.stringify(local_AllocMatrix)),
-            current_process: null,
-            iteraction: iteraction,
-            state: "BANKER_IDLE_STATE"
-        });
+        if( terminated.count != local_AllocMatrix.length ) {
+            stateStack.push({
+                P: JSON.parse(JSON.stringify(local_P)),
+                A: JSON.parse(JSON.stringify(local_A)),
+                allocationMatrix: JSON.parse(JSON.stringify(local_AllocMatrix)),
+                current_process: null,
+                iteraction: iteraction,
+                state: "BANKER_IDLE_STATE"
+            });
+        }
     } // Loop: Passo 3
     
     stateStack.push({
-            P: JSON.parse(JSON.stringify(local_P)),
-            A: JSON.parse(JSON.stringify(local_A)),
-            allocationMatrix: JSON.parse(JSON.stringify(local_AllocMatrix)),
+            P: JSON.parse(JSON.stringify(P)),
+            A: JSON.parse(JSON.stringify(A)),
+            allocationMatrix: JSON.parse(JSON.stringify(allocationMatrix)),
             current_process: current_process,
             iteraction: iteraction,
             state: "END_STATE"

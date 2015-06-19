@@ -36,5 +36,13 @@ get_string = {
 	banker_22: "the process executed to termination.",
 	banker_31: "Step 3: The execution of the process",
 	banker_32: "ends.",
-	banker_33: "Repeat the previous steps."
+	banker_33: "Repeat the previous steps.",
+	banker_imp1: "You've tried to allocate",
+	banker_imp2: "an unavailable number",
+	banker_imp3: "of resources.",
+	banker_end1: "The banker managed to allocate",
+	banker_end2: "the needed resources for every",
+	banker_end3: "process finish execution. This",
+	banker_end4: "is a safe state, and the resources",
+	banker_end5: "can be allocated."
 };

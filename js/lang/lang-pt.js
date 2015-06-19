@@ -35,5 +35,13 @@ get_string = {
 	banker_22: "alocados e o processo executa.",
 	banker_31: "Passo 3: O processo executou",
 	banker_32: "até o fim.",
-	banker_33: "Repetir os passos anteriores."
+	banker_33: "Repetir os passos anteriores.",
+	banker_imp1: "Você tentou alocar mais",
+	banker_imp2: "recursos do que a quantidade",
+	banker_imp3: "disponível.",
+	banker_end1: "O algoritmo conseguiu fornecer",
+	banker_end2: "recursos para todos os processos",
+	banker_end3: "executarem. Esse é um estado",
+	banker_end4: "seguro, e os recursos podem ser",
+	banker_end5: "fornecidos."
 };
