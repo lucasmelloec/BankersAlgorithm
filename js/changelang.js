@@ -20,7 +20,7 @@ function changelang() {
 	}
 
 	// If no language found, let's load the default language file:
-	loadJS("js/lang/lang-en.js");
+	loadJS("js/lang/lang-pt.js");
 	updatelang();
 }
 
@@ -33,7 +33,7 @@ function loadJS(url) {
 
 function updatelang() {
 	if(language != "pt" && language != "en") {
-		language = "en";
+		language = "pt";
 	}
 	
 	$("#page_title").text(get_string.page_title);

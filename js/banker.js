@@ -1,97 +1,165 @@
-var allocationMatrix = [];
-var demandMatrix = [[3, 1, 3], [5, 1, 0], [3, 1, 2]]; // Matriz que indica quantos recursos de cada tipo o processo irá pedir durante sua execução.
-var terminated = {
-    check: [ false, false, false ], // True indica que o processo foi concluído
-    count: 0 // Contagem de processos concluídos
-};
-var P = [];
-var A = [];
-var E = [5, 2, 3]; // Recursos existentes.
+var allocationMatrix = [
+    [0, 0, 0], 
+    [0, 0, 0], 
+    [0, 0, 0]
+]; 
+var demandMatrix = [ // Quantos recursos de cada tipo o processo irá pedir durante sua execução.
+    [3, 1, 3], 
+    [5, 1, 0], 
+    [3, 1, 2]
+];
+
+var previousMatrix = [];
+
+var terminated = {};
+
+var P = [0, 0, 0];
+var A = [5, 2, 3];
+var E = A.slice(0); // Recursos existentes.
+
+var current_process;
 
 var stateStack = [];
 
 function banker() {
-    var current_process;
+    var local_P = [];
+    var local_A = [];
+    var local_AllocMatrix = JSON.parse(JSON.stringify(allocationMatrix));
     
-    // Inicialização de P a partir da matriz de alocação
+    var iteraction = 1;
+    
+    terminated = {
+        check: [ false, false, false ], // True indica que o processo foi concluído
+        count: 0 // Contagem de processos concluídos
+    };
+    
+    // Inicialização de local_P a partir da matriz de alocação
     var j;
     var i;
-    for ( j = 0; j < allocationMatrix[0].length; j++ ) {
-        P[j] = 0;
-        for ( i = 0; i < allocationMatrix.length; i++ ) {
-            P[j] += allocationMatrix[i][j];
+    for ( j = 0; j < local_AllocMatrix[0].length; j++ ) {
+        local_P[j] = 0;
+        for ( i = 0; i < local_AllocMatrix.length; i++ ) {
+            local_P[j] += local_AllocMatrix[i][j];
         }
     }
 
-    // Inicialização de A a partir de E e P
+    // Inicialização de local_A a partir de E e local_P
     for ( i = 0; i < E.length; i++ ) {
-        A.push( E[i] - P[i] );
+        local_A.push( E[i] - local_P[i] );
     }
+    
+    stateStack.push({
+            P: JSON.parse(JSON.stringify(local_P)),
+            A: JSON.parse(JSON.stringify(local_A)),
+            allocationMatrix: JSON.parse(JSON.stringify(local_AllocMatrix)),
+            current_process: null,
+            iteraction: iteraction,
+            state: "BANKER_1_STATE"
+    });
 
-    while ( terminated.count != allocationMatrix.length ) {
+    
+    while ( terminated.count != local_AllocMatrix.length ) {
         // Passo 1
-        for ( i = 0; i < allocationMatrix.length; i++ ) {
+        for ( i = 0; i < local_AllocMatrix.length; i++ ) {
             if ( terminated.check[i] != true ) {
-                for ( j = 0; j < allocationMatrix[0].length; j++ ) {
-                    if ( demandMatrix[i][j] - allocationMatrix[i][j] > A[j] ) {
-                        j = allocationMatrix[0].length + 1;
+                for ( j = 0; j < local_AllocMatrix[0].length; j++ ) {
+                    if ( demandMatrix[i][j] - local_AllocMatrix[i][j] > local_A[j] ) {
+                        j = local_AllocMatrix[0].length + 1;
                     }
                 }
-                if ( j == allocationMatrix[0].length ) {
+                if ( j == local_AllocMatrix[0].length ) {
                     current_process = i;
-                    i = allocationMatrix.length;
+                    i = local_AllocMatrix.length;
                 }
             }
         }
 
-        if ( terminated.check[ current_process ] == false ) {
-            // Passo 2 
-            // Fornece todos os recursos de que o processo necessita
-            for ( i = 0; i < A.length; i++ ) {
-                A[i] -= demandMatrix[current_process][i] - allocationMatrix[current_process][i];
-                P[i] = E[i] - A[i];
-            }
-            allocationMatrix[current_process] = demandMatrix[current_process].splice();
-            
+        if ( j == local_AllocMatrix[0].length && terminated.check[ current_process ] == false ) {
             stateStack.push({
-                P: P,
-                A: A,
-                allocationMatrix: allocationMatrix,
+                P: JSON.parse(JSON.stringify(local_P)),
+                A: JSON.parse(JSON.stringify(local_A)),
+                allocationMatrix: JSON.parse(JSON.stringify(local_AllocMatrix)),
+                current_process: current_process,
+                iteraction: iteraction,
                 state: "BANKER_1_SUCCESS_STATE"
             });
-
-            // Processo se conclui, recursos são liberados
-            for( i = 0; i < A.length; i++ ) {
-                A[i] += allocationMatrix[current_process][i];
-                P[i] = E[i] - A[i];
+            
+            // Passo 2 
+            // Fornece todos os recursos de que o processo necessita
+            for ( i = 0; i < local_A.length; i++ ) {
+                local_A[i] -= demandMatrix[current_process][i] - local_AllocMatrix[current_process][i];
+                local_P[i] = E[i] - local_A[i];
             }
-            allocationMatrix[current_process].forEach(
-                function( element ) {
-                    element = 0;
-                }
+            local_AllocMatrix[current_process] = JSON.parse(
+                JSON.stringify(demandMatrix[current_process])
             );
-
-            terminated.check[current_process] = true;
-            terminated.count++;
+            
             stateStack.push({
-                P: P,
-                A: A,
-                allocationMatrix: allocationMatrix,
+                P: JSON.parse(JSON.stringify(local_P)),
+                A: JSON.parse(JSON.stringify(local_A)),
+                allocationMatrix: JSON.parse(JSON.stringify(local_AllocMatrix)),
+                current_process: current_process,
+                iteraction: iteraction,
                 state: "BANKER_2_STATE"
             });
 
+            // Processo se conclui, recursos são liberados
+            for( i = 0; i < local_A.length; i++ ) {
+                local_A[i] += local_AllocMatrix[current_process][i];
+                local_P[i] = E[i] - local_A[i];
+            }
+            
+            for(i = 0; i < local_AllocMatrix[current_process].length; i++) {
+                local_AllocMatrix[current_process][i] = 0;
+            }
+
+            terminated.check[current_process] = true;
+            terminated.count++;
         }
         else {
             stateStack.push({
-                P: P,
-                A: A,
-                allocationMatrix: allocationMatrix,
+                P: JSON.parse(JSON.stringify(local_P)),
+                A: JSON.parse(JSON.stringify(local_A)),
+                allocationMatrix: JSON.parse(JSON.stringify(local_AllocMatrix)),
+                current_process: current_process,
+                iteraction: iteraction,
                 state: "BANKER_1_FAIL_STATE"
             });
             
+            allocationMatrix = JSON.parse(JSON.stringify(previousMatrix));
+            
             return false;
         }
+        
+        stateStack.push({
+            P: JSON.parse(JSON.stringify(local_P)),
+            A: JSON.parse(JSON.stringify(local_A)),
+            allocationMatrix: JSON.parse(JSON.stringify(local_AllocMatrix)),
+            current_process: current_process,
+            iteraction: iteraction,
+            state: "BANKER_3_STATE"
+        });
+        
+        iteraction += 1;
+        
+        stateStack.push({
+            P: JSON.parse(JSON.stringify(local_P)),
+            A: JSON.parse(JSON.stringify(local_A)),
+            allocationMatrix: JSON.parse(JSON.stringify(local_AllocMatrix)),
+            current_process: null,
+            iteraction: iteraction,
+            state: "BANKER_IDLE_STATE"
+        });
     } // Loop: Passo 3
+    
+    stateStack.push({
+            P: JSON.parse(JSON.stringify(local_P)),
+            A: JSON.parse(JSON.stringify(local_A)),
+            allocationMatrix: JSON.parse(JSON.stringify(local_AllocMatrix)),
+            current_process: current_process,
+            iteraction: iteraction,
+            state: "END_STATE"
+    });
 
     return true;
 }
