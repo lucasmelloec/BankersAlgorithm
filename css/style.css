@@ -43,8 +43,35 @@ body {
 .text_box {
     font-family: "Trebuchet MS", Helvetica, sans-serif;
     font-size: 1.1em;
-    color: #1F7428;
+    /*color: #1F7428;*/
+    color: #231F20;
     width: 80%;
+}
+
+.header_box{
+    font-family: "Trebuchet MS", Helvetica, sans-serif; 
+    font-size: 1.6em;
+    color: #499090;
+    text-shadow: 1px 1px rgba(0,0,0, 0.4);
+    margin-left: 15%;
+    margin-right: 20%;
+}
+
+.title_box{
+    font-family: "Trebuchet MS", Helvetica, sans-serif; 
+    font-size: 1.3em;
+    color: #231F20;
+    text-shadow: 1px 1px rgba(0,0,0, 0.2);
+    margin-left: 10%;
+    margin-right: 20%;
+}
+
+.paragraph_box{
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 1.0em;
+    color: #231F20;
+    margin-left: 13%;
+    margin-right: 10%;
 }
 
 #canvas_block {

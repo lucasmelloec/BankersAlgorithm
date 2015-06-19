@@ -14,8 +14,8 @@ var previousMatrix = [];
 var terminated = {};
 
 var P = [0, 0, 0];
-var A = [5, 2, 3];
-var E = A.slice(0); // Recursos existentes.
+var E = [5, 2, 3]; // Recursos existentes.
+var A = E.slice(0);
 
 var current_process;
 
@@ -167,10 +167,23 @@ function banker() {
             });
         }
     } // Loop: Passo 3
+        
+    /* Usar isso se tiver como continuar depois do END_STATE
+    for(i = 0; i < P.length; i++) {
+        P[i] = 0;
+        for(j = 0; j < allocationMatrix.length; j++) {
+            P[i] += allocationMatrix[j][i];
+        }
+    }
+
+    // Define A a partir de E e P
+    for ( i = 0; i < E.length; i++ ) {
+        A[i] = ( E[i] - P[i] );
+    }*/
     
     stateStack.push({
-            P: JSON.parse(JSON.stringify(P)),
-            A: JSON.parse(JSON.stringify(A)),
+            P: JSON.parse(JSON.stringify(stateStack[0].P)),
+            A: JSON.parse(JSON.stringify(stateStack[0].A)),
             allocationMatrix: JSON.parse(JSON.stringify(allocationMatrix)),
             current_process: current_process,
             iteraction: iteraction,

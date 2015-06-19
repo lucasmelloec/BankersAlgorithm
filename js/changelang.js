@@ -19,15 +19,15 @@ function changelang() {
 		}
 	}
 
-	// If no language found, let's load the default language file:
+	// Se não encontrar o idioma, carrega o padrão
 	loadJS("js/lang/lang-pt.js");
 	updatelang();
 }
 
 function loadJS(url) {
-	var script=document.createElement("script");
-	script.type="text/javascript";
-	script.src=url;
+	var script = document.createElement("script");
+	script.type = "text/javascript";
+	script.src = url;
 	$("head").append(script);
 }
 
@@ -54,12 +54,23 @@ function updatelang() {
 	
 	$("#banker_canvas").text(get_string.html5_error);
 	
+	$("#authors_header_1").text(get_string.authors_header_1);
+	$("#authors_title_1").text(get_string.authors_title_1);
 	$("#authors_1").text(get_string.authors_1);
 	$("#authors_2").text(get_string.authors_2);
 	$("#authors_3").text(get_string.authors_3);
 	$("#authors_4").text(get_string.authors_4);
-	$("#authors_5").text(get_string.authors_5);
 	
 	$("#ack_1").text(get_string.ack_1);
 	$("#ack_2").text(get_string.ack_2);
+	
+	$("#theory_header").text(get_string.theory_header);
+	$("#theory_title_1").text(get_string.theory_title_1);
+	$("#theory_title_2").text(get_string.theory_title_2);
+	$("#theory_title_3").text(get_string.theory_title_3);
+	$("#theory_paragraph_1").text(get_string.theory_paragraph_1);
+	$("#theory_paragraph_2").text(get_string.theory_paragraph_2);
+	$("#theory_paragraph_3").text(get_string.theory_paragraph_3);
+	$("#theory_reference_header").text(get_string.theory_reference_header);
+	$("#theory_reference").text(get_string.theory_reference);
 }

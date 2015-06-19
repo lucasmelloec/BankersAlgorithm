@@ -431,25 +431,25 @@ function changeState(newState) {
         buttons[1].x = 430;
         buttons[1].y = 430;
         
-        createText(get_string.banker_iteract + stateStack[stack_i].iteraction, "18px sans-serif", 0);
+        createText(get_string.banker_iteract + stateStack[stack_i].iteraction, "20px sans-serif", 0);
         texts[32].x = 0;
         texts[32].y = 340;
-        texts[32].color = "blue";
+        texts[32].color = "#blue";
         createText(get_string.banker_11, "18px sans-serif", 0);
         texts[33].x = 0;
-        texts[33].y = 358;
+        texts[33].y = 360;
         createText(get_string.banker_12, "18px sans-serif", 0);
         texts[34].x = 0;
-        texts[34].y = 376;
+        texts[34].y = 378;
         createText(get_string.banker_13, "18px sans-serif", 0);
         texts[35].x = 0;
-        texts[35].y = 394;
+        texts[35].y = 396;
         createText(get_string.banker_14, "18px sans-serif", 0);
         texts[36].x = 0;
-        texts[36].y = 412;
+        texts[36].y = 414;
         createText(get_string.banker_15, "18px sans-serif", 0);
         texts[37].x = 0;
-        texts[37].y = 430;
+        texts[37].y = 432;
         
     }
     else if(newState == "BANKER_IDLE_STATE") {
@@ -525,25 +525,25 @@ function changeState(newState) {
         buttons[1].x = 430;
         buttons[1].y = 430;
         
-        createText(get_string.banker_iteract + stateStack[stack_i].iteraction, "18px sans-serif", 0);
+        createText(get_string.banker_iteract + stateStack[stack_i].iteraction, "20px sans-serif", 0);
         texts[32].x = 0;
         texts[32].y = 340;
         texts[32].color = "blue";
         createText(get_string.banker_11, "18px sans-serif", 0);
         texts[33].x = 0;
-        texts[33].y = 358;
+        texts[33].y = 360;
         createText(get_string.banker_12, "18px sans-serif", 0);
         texts[34].x = 0;
-        texts[34].y = 376;
+        texts[34].y = 378;
         createText(get_string.banker_13, "18px sans-serif", 0);
         texts[35].x = 0;
-        texts[35].y = 394;
+        texts[35].y = 396;
         createText(get_string.banker_14, "18px sans-serif", 0);
         texts[36].x = 0;
-        texts[36].y = 412;
+        texts[36].y = 414;
         createText(get_string.banker_15, "18px sans-serif", 0);
         texts[37].x = 0;
-        texts[37].y = 430;
+        texts[37].y = 432;
         
     }
     else if(newState == "BANKER_1_SUCCESS_STATE") {
@@ -621,16 +621,16 @@ function changeState(newState) {
         buttons[1].x = 430;
         buttons[1].y = 430;
         
-        createText(get_string.banker_iteract + stateStack[stack_i].iteraction, "18px sans-serif", 0);
+        createText(get_string.banker_iteract + stateStack[stack_i].iteraction, "20px sans-serif", 0);
         texts[32].x = 0;
         texts[32].y = 340;
         texts[32].color = "blue";
         createText(get_string.banker_1_succ1, "18px sans-serif", 0);
         texts[33].x = 0;
-        texts[33].y = 358;
+        texts[33].y = 360;
         createText(get_string.banker_1_succ2, "18px sans-serif", 0);
         texts[34].x = 0;
-        texts[34].y = 376;
+        texts[34].y = 378;
     }
     else if(newState == "BANKER_1_FAIL_STATE") {
         standardLoad();
@@ -795,16 +795,16 @@ function changeState(newState) {
         buttons[1].x = 430;
         buttons[1].y = 430;
         
-        createText(get_string.banker_iteract + stateStack[stack_i].iteraction, "18px sans-serif", 0);
+        createText(get_string.banker_iteract + stateStack[stack_i].iteraction, "20px sans-serif", 0);
         texts[32].x = 0;
         texts[32].y = 340;
         texts[32].color = "blue";
         createText(get_string.banker_21, "18px sans-serif", 0);
         texts[33].x = 0;
-        texts[33].y = 358;
+        texts[33].y = 360;
         createText(get_string.banker_22, "18px sans-serif", 0);
         texts[34].x = 0;
-        texts[34].y = 376;
+        texts[34].y = 378;
     }
     else if (newState == "BANKER_3_STATE") {
         standardLoad();
@@ -890,24 +890,24 @@ function changeState(newState) {
         buttons[1].x = 430;
         buttons[1].y = 430;
         
-        createText(get_string.banker_iteract + stateStack[stack_i].iteraction, "18px sans-serif", 0);
+        createText(get_string.banker_iteract + stateStack[stack_i].iteraction, "20px sans-serif", 0);
         texts[32].x = 0;
         texts[32].y = 340;
         texts[32].color = "blue";
         createText(get_string.banker_31, "18px sans-serif", 0);
         texts[33].x = 0;
-        texts[33].y = 358;
+        texts[33].y = 360;
         createText(get_string.banker_32, "18px sans-serif", 0);
         texts[34].x = 0;
-        texts[34].y = 376;
+        texts[34].y = 378;
         createText(get_string.banker_33, "18px sans-serif", 0);
         texts[35].x = 0;
-        texts[35].y = 394;
+        texts[35].y = 396;
     }
     else if (newState == "END_STATE") {
         standardLoad();
         
-        num_of_images += 1;
+        num_of_images += 2;
         
         createText(stateStack[stack_i].allocationMatrix[0][0], "30px sans-serif", 0);
         texts[17].x = 502;
@@ -968,6 +968,9 @@ function changeState(newState) {
         loadButton("previous_button", previous_button);
         buttons[0].x = 430;
         buttons[0].y = 430;
+        loadButton("reload_button", reload_button);
+        buttons[1].x = 320;
+        buttons[1].y = 430;
         
         createText(get_string.banker_end1, "18px sans-serif", 0);
         texts[32].x = 0;
@@ -1087,24 +1090,6 @@ function next_button() {
     
         changeState(stateStack[0].state);
     }
-    else if(current_state == "END_STATE") {
-        
-        var i;
-        
-        for(i = 0; i < P.length; i++) {
-            P[i] = 0;
-            for(j = 0; j < allocationMatrix.length; j++) {
-                P[i] += allocationMatrix[j][i];
-            }
-        }
-    
-        // Define A a partir de E e P
-        for ( i = 0; i < E.length; i++ ) {
-            A[i] = ( E[i] - P[i] );
-        }
-        
-        changeState("INIT_STATE");
-    }
     else if ((stack_i + 1) == stateStack.length) {
         changeState("INIT_STATE");
     }
@@ -1123,6 +1108,15 @@ function previous_button() {
     else {
         changeState(stateStack[stack_i].state);
     }
+}
+
+function reload_button() {
+    allocationMatrix = [
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0]
+    ];
+    changeState("INIT_STATE")
 }
 
 function claim_button(i) {
