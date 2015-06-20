@@ -1,0 +1,13 @@
+[ ]Botão de UNDO dos nºs nas tabelas
+[ ]Tornar tabela de necessários alterável
+
+[ ]Denotar os 3 passos mais explicitamente (Na teoria)
+[ ]Sobre o algoritmo: 
+    - Porque não é usado?
+    - Vantagens, problemas
+    - Quando é usado? (Explicitar)
+
+[ ]Tutorial: Explicar a interface
+
+[ ]Afastar bonecos da tabela
+[ ]Referências à versão em inglês

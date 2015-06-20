@@ -43,9 +43,9 @@ body {
 .text_box {
     font-family: "Trebuchet MS", Helvetica, sans-serif;
     font-size: 1.1em;
-    /*color: #1F7428;*/
     color: #231F20;
-    width: 80%;
+    margin-left: 13%;
+    margin-right: 10%;
 }
 
 .header_box{

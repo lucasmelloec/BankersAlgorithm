@@ -4,9 +4,9 @@ var allocationMatrix = [
     [0, 0, 0]
 ]; 
 var demandMatrix = [ // Quantos recursos de cada tipo o processo irá pedir durante sua execução.
-    [3, 1, 3], 
-    [5, 1, 0], 
-    [3, 1, 2]
+    [0, 0, 0], 
+    [0, 0, 0], 
+    [0, 0, 0]
 ];
 
 var previousMatrix = [];
@@ -51,7 +51,8 @@ function banker() {
                 state: "BANKER_IMPOSSIBLE"
             });
             
-            allocationMatrix = JSON.parse(JSON.stringify(previousMatrix));
+            allocationMatrix = JSON.parse(JSON.stringify(previousMatrix[0]));
+            demandMatrix = JSON.parse(JSON.stringify(previousMatrix[1]));
             
             return false;
         }
@@ -140,7 +141,8 @@ function banker() {
                 state: "BANKER_1_FAIL_STATE"
             });
             
-            allocationMatrix = JSON.parse(JSON.stringify(previousMatrix));
+            allocationMatrix = JSON.parse(JSON.stringify(previousMatrix[0]));
+            allocationMatrix = JSON.parse(JSON.stringify(previousMatrix[1]));
             
             return false;
         }
@@ -166,20 +168,7 @@ function banker() {
                 state: "BANKER_IDLE_STATE"
             });
         }
-    } // Loop: Passo 3
-        
-    /* Usar isso se tiver como continuar depois do END_STATE
-    for(i = 0; i < P.length; i++) {
-        P[i] = 0;
-        for(j = 0; j < allocationMatrix.length; j++) {
-            P[i] += allocationMatrix[j][i];
-        }
-    }
-
-    // Define A a partir de E e P
-    for ( i = 0; i < E.length; i++ ) {
-        A[i] = ( E[i] - P[i] );
-    }*/
+    } // Loop: Passo 3S
     
     stateStack.push({
             P: JSON.parse(JSON.stringify(stateStack[0].P)),

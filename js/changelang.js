@@ -56,11 +56,8 @@ function updatelang() {
 	
 	$("#authors_header_1").text(get_string.authors_header_1);
 	$("#authors_title_1").text(get_string.authors_title_1);
-	$("#authors_1").text(get_string.authors_1);
-	$("#authors_2").text(get_string.authors_2);
-	$("#authors_3").text(get_string.authors_3);
-	$("#authors_4").text(get_string.authors_4);
 	
+	$("#ack_header").text(get_string.ack_header);
 	$("#ack_1").text(get_string.ack_1);
 	$("#ack_2").text(get_string.ack_2);
 	
@@ -70,7 +67,17 @@ function updatelang() {
 	$("#theory_title_3").text(get_string.theory_title_3);
 	$("#theory_paragraph_1").text(get_string.theory_paragraph_1);
 	$("#theory_paragraph_2").text(get_string.theory_paragraph_2);
-	$("#theory_paragraph_3").text(get_string.theory_paragraph_3);
+	$("#theory_paragraph_31").text(get_string.theory_paragraph_31);
+	$("#theory_paragraph_32_def1_title").text(get_string.theory_paragraph_32_def1_title);
+	$("#theory_paragraph_32_def2_title").text(get_string.theory_paragraph_32_def2_title);
+	$("#theory_paragraph_32_def3_title").text(get_string.theory_paragraph_32_def3_title);
+	$("#theory_paragraph_32_def4_title").text(get_string.theory_paragraph_32_def4_title);
+	$("#theory_paragraph_32_def1").text(get_string.theory_paragraph_32_def1);
+	$("#theory_paragraph_32_def2").text(get_string.theory_paragraph_32_def2);
+	$("#theory_paragraph_32_def3").text(get_string.theory_paragraph_32_def3);
+	$("#theory_paragraph_32_def4").text(get_string.theory_paragraph_32_def4);
+	$("#theory_paragraph_33_title").text(get_string.theory_paragraph_33_title);
+	$("#theory_paragraph_33").text(get_string.theory_paragraph_33);
 	$("#theory_reference_header").text(get_string.theory_reference_header);
 	$("#theory_reference").text(get_string.theory_reference);
 }
