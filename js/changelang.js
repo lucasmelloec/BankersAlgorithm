@@ -68,16 +68,18 @@ function updatelang() {
 	$("#theory_paragraph_1").text(get_string.theory_paragraph_1);
 	$("#theory_paragraph_2").text(get_string.theory_paragraph_2);
 	$("#theory_paragraph_31").text(get_string.theory_paragraph_31);
-	$("#theory_paragraph_32_def1_title").text(get_string.theory_paragraph_32_def1_title);
-	$("#theory_paragraph_32_def2_title").text(get_string.theory_paragraph_32_def2_title);
-	$("#theory_paragraph_32_def3_title").text(get_string.theory_paragraph_32_def3_title);
-	$("#theory_paragraph_32_def4_title").text(get_string.theory_paragraph_32_def4_title);
-	$("#theory_paragraph_32_def1").text(get_string.theory_paragraph_32_def1);
-	$("#theory_paragraph_32_def2").text(get_string.theory_paragraph_32_def2);
-	$("#theory_paragraph_32_def3").text(get_string.theory_paragraph_32_def3);
-	$("#theory_paragraph_32_def4").text(get_string.theory_paragraph_32_def4);
-	$("#theory_paragraph_33_title").text(get_string.theory_paragraph_33_title);
-	$("#theory_paragraph_33").text(get_string.theory_paragraph_33);
+	$("#theory_paragraph_32_title").text(get_string.theory_paragraph_32_title);
+	$("#theory_paragraph_32").text(get_string.theory_paragraph_32);
+	$("#theory_paragraph_33_def1_title").text(get_string.theory_paragraph_33_def1_title);
+	$("#theory_paragraph_33_def2_title").text(get_string.theory_paragraph_33_def2_title);
+	$("#theory_paragraph_33_def3_title").text(get_string.theory_paragraph_33_def3_title);
+	$("#theory_paragraph_33_def4_title").text(get_string.theory_paragraph_33_def4_title);
+	$("#theory_paragraph_33_def1").text(get_string.theory_paragraph_33_def1);
+	$("#theory_paragraph_33_def2").text(get_string.theory_paragraph_33_def2);
+	$("#theory_paragraph_33_def3").text(get_string.theory_paragraph_33_def3);
+	$("#theory_paragraph_33_def4").text(get_string.theory_paragraph_33_def4);
+	$("#theory_paragraph_34_title").text(get_string.theory_paragraph_34_title);
+	$("#theory_paragraph_34").text(get_string.theory_paragraph_34);
 	$("#theory_reference_header").text(get_string.theory_reference_header);
 	$("#theory_reference").text(get_string.theory_reference);
 }

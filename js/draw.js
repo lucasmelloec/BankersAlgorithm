@@ -215,7 +215,7 @@ function changeState(newState) {
         previousMatrix[0] = JSON.parse(JSON.stringify(allocationMatrix));
         previousMatrix[1] = JSON.parse(JSON.stringify(demandMatrix));
         
-        num_of_images = 6;
+        num_of_images = 7;
     
         loadImage("allocated_table");
         objects[0].x = 340;
@@ -237,38 +237,101 @@ function changeState(newState) {
         objects[4].x = 0;
         objects[4].y = 200;
         
+        pseudoButtons.push({
+            x: 491,
+            y: 272,
+            width: 50,
+            height: 50,
+            funct: demand_button
+        });
         createText(demandMatrix[0][0], "30px sans-serif", 0);
         texts[0].x = 502;
         texts[0].y = 285;
         
+        pseudoButtons.push({
+            x: 541,
+            y: 272,
+            width: 50,
+            height: 50,
+            funct: demand_button
+        });
         createText(demandMatrix[0][1], "30px sans-serif", 0);
         texts[1].x = 552;
         texts[1].y = 285;
         
+        pseudoButtons.push({
+            x: 591,
+            y: 272,
+            width: 50,
+            height: 50,
+            funct: demand_button
+        });
         createText(demandMatrix[0][2], "30px sans-serif", 0);
         texts[2].x = 602;
         texts[2].y = 285;
         
+        pseudoButtons.push({
+            x: 491,
+            y: 322,
+            width: 50,
+            height: 50,
+            funct: demand_button
+        });
         createText(demandMatrix[1][0], "30px sans-serif", 0);
         texts[3].x = 502;
         texts[3].y = 335;
         
+        pseudoButtons.push({
+            x: 541,
+            y: 322,
+            width: 50,
+            height: 50,
+            funct: demand_button
+        });
         createText(demandMatrix[1][1], "30px sans-serif", 0);
         texts[4].x = 552;
         texts[4].y = 335;
         
+        pseudoButtons.push({
+            x: 591,
+            y: 322,
+            width: 50,
+            height: 50,
+            funct: demand_button
+        });
         createText(demandMatrix[1][2], "30px sans-serif", 0);
         texts[5].x = 602;
         texts[5].y = 335;
         
+        pseudoButtons.push({
+            x: 491,
+            y: 372,
+            width: 50,
+            height: 50,
+            funct: demand_button
+        });
         createText(demandMatrix[2][0], "30px sans-serif", 0);
         texts[6].x = 502;
         texts[6].y = 385;
         
+        pseudoButtons.push({
+            x: 541,
+            y: 372,
+            width: 50,
+            height: 50,
+            funct: demand_button
+        });
         createText(demandMatrix[2][1], "30px sans-serif", 0);
         texts[7].x = 552;
         texts[7].y = 385;
         
+        pseudoButtons.push({
+            x: 591,
+            y: 372,
+            width: 50,
+            height: 50,
+            funct: demand_button
+        });
         createText(demandMatrix[2][2], "30px sans-serif", 0);
         texts[8].x = 602;
         texts[8].y = 385;
@@ -290,12 +353,35 @@ function changeState(newState) {
         texts[13].x = 130;
         texts[13].y = 225;
         
+        pseudoButtons.push({
+            x: 103,
+            y: 252,
+            width: 50,
+            height: 50,
+            funct: exist_button
+        });
         createText(E[0], "30px sans-serif", 0);
         texts[14].x = 112;
         texts[14].y = 265;
+        
+        pseudoButtons.push({
+            x: 153,
+            y: 252,
+            width: 50,
+            height: 50,
+            funct: exist_button
+        });
         createText(E[1], "30px sans-serif", 0);
         texts[15].x = 162;
         texts[15].y = 265;
+        
+        pseudoButtons.push({
+            x: 203,
+            y: 252,
+            width: 50,
+            height: 50,
+            funct: exist_button
+        });
         createText(E[2], "30px sans-serif", 0);
         texts[16].x = 212;
         texts[16].y = 265;
@@ -399,78 +485,6 @@ function changeState(newState) {
         texts[25].x = 602;
         texts[25].y = 165;
         
-        pseudoButtons.push({
-            x: 491,
-            y: 272,
-            width: 50,
-            height: 50,
-            funct: demand_button
-        });
-        
-        pseudoButtons.push({
-            x: 541,
-            y: 272,
-            width: 50,
-            height: 50,
-            funct: demand_button
-        });
-        
-        pseudoButtons.push({
-            x: 591,
-            y: 272,
-            width: 50,
-            height: 50,
-            funct: demand_button
-        });
-        
-        pseudoButtons.push({
-            x: 491,
-            y: 322,
-            width: 50,
-            height: 50,
-            funct: demand_button
-        });
-        
-        pseudoButtons.push({
-            x: 541,
-            y: 322,
-            width: 50,
-            height: 50,
-            funct: demand_button
-        });
-        
-        pseudoButtons.push({
-            x: 591,
-            y: 322,
-            width: 50,
-            height: 50,
-            funct: demand_button
-        });
-        
-        pseudoButtons.push({
-            x: 491,
-            y: 372,
-            width: 50,
-            height: 50,
-            funct: demand_button
-        });
-        
-        pseudoButtons.push({
-            x: 541,
-            y: 372,
-            width: 50,
-            height: 50,
-            funct: demand_button
-        });
-        
-        pseudoButtons.push({
-            x: 591,
-            y: 372,
-            width: 50,
-            height: 50,
-            funct: demand_button
-        });
-        
         createText(P[0], "30px sans-serif", 0);
         texts[26].x = 112;
         texts[26].y = 65;
@@ -494,8 +508,8 @@ function changeState(newState) {
         loadButton("next_button", next_button);
         buttons[0].x = 540;
         buttons[0].y = 430;
-        loadButton("previous_button", randomize_button);
-        buttons[1].x = 440;
+        loadButton("reload_button", reload_button);
+        buttons[1].x = 320;
         buttons[1].y = 430;
         
         createText(get_string.banker_init1, "18px sans-serif", 0);
@@ -835,7 +849,7 @@ function randomize_button() {
 }
 
 function reload_button() {
-    E = [5, 2, 3];
+    E = [0, 0, 0];
     A = E.slice(0);
     
     demandMatrix = [
@@ -852,6 +866,7 @@ function reload_button() {
 }
 
 function claim_button(i) {
+    i -= 12;
     var j = Math.floor(i/allocationMatrix[0].length);
     var k = i % allocationMatrix[0].length;
     
@@ -874,7 +889,6 @@ function claim_button(i) {
 }
 
 function demand_button(i) {
-    i -= 9;
     var j = Math.floor(i/demandMatrix[0].length);
     var k = i % demandMatrix[0].length;
     
@@ -896,10 +910,32 @@ function demand_button(i) {
     draw();
 }
 
+function exist_button(i) {
+    i -= 9;
+    
+    E[i] += 1;
+
+    if(E[i] > 9) {
+        E[i] = 9;
+    }
+    else {
+        editStack.push({
+            E: JSON.parse(JSON.stringify(E)),
+            allocationMatrix: JSON.parse(JSON.stringify(allocationMatrix)),
+            demandMatrix: JSON.parse(JSON.stringify(demandMatrix))
+        });
+    }
+    
+    texts[i + 14].value = E[i];
+    
+    draw();
+}
+
 function undo_button() {
     var last_edit = editStack.pop();
     
     E = JSON.parse(JSON.stringify(last_edit.E));
+    A = E.slice(0);
     allocationMatrix = JSON.parse(JSON.stringify(last_edit.allocationMatrix));
     demandMatrix = JSON.parse(JSON.stringify(last_edit.demandMatrix));
 }

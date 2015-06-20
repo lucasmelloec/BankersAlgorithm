@@ -14,7 +14,7 @@ var previousMatrix = [];
 var terminated = {};
 
 var P = [0, 0, 0];
-var E = [5, 2, 3]; // Recursos existentes.
+var E = [0, 0, 0]; // Recursos existentes.
 var A = E.slice(0);
 
 var current_process;
