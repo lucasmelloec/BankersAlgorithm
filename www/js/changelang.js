@@ -67,8 +67,21 @@ function updatelang() {
 	$("#tutorial_header_1").text(get_string.tutorial_header_1);
 	$("#tutorial_title_1").text(get_string.tutorial_title_1);
 	$("#tutorial_paragraph_1").text(get_string.tutorial_paragraph_1);
-	//$("#ack_2").text(get_string.ack_2);
-	//$("#ack_2").text(get_string.ack_2);
+
+	$("#tutorial_subtitle_11").text(get_string.tutorial_subtitle_11);
+	$("#tutorial_subtitle_12").text(get_string.tutorial_subtitle_12);
+	$("#tutorial_subtitle_13").text(get_string.tutorial_subtitle_13);
+	$("#tutorial_paragraph_11").text(get_string.tutorial_paragraph_11);
+	$("#tutorial_paragraph_12").text(get_string.tutorial_paragraph_12);
+	$("#tutorial_paragraph_13").text(get_string.tutorial_paragraph_13);
+	$("#tutorial_title_2").text(get_string.tutorial_title_2);
+	$("#tutorial_paragraph_21").text(get_string.tutorial_paragraph_21);
+	$("#tutorial_paragraph_22").text(get_string.tutorial_paragraph_22);
+	$("#tutorial_paragraph_23").text(get_string.tutorial_paragraph_23);
+	$("#tutorial_paragraph_24").text(get_string.tutorial_paragraph_24);
+	
+	$("#interface_img").attr("src", "img/interface_"+language+".png");
+	$("#buttons_tutorial_img").attr("src", "img/buttons_tutorial_"+language+".png");
 	
 	$("#theory_header").text(get_string.theory_header);
 	$("#theory_title_1").text(get_string.theory_title_1);
