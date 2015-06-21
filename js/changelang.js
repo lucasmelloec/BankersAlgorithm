@@ -43,6 +43,9 @@ function updatelang() {
 	$("#home_button").text(get_string.home_button);
 	$("#home_button").attr("href", "index.html?lang="+language);
 	
+	$("#tutorial_button").text(get_string.tutorial_button);
+	$("#tutorial_button").attr("href", "tutorial.html?lang="+language);
+	
 	$("#theory_button").text(get_string.theory_button);
 	$("#theory_button").attr("href", "theory.html?lang="+language);
 	
@@ -61,6 +64,12 @@ function updatelang() {
 	$("#ack_1").text(get_string.ack_1);
 	$("#ack_2").text(get_string.ack_2);
 	
+	$("#tutorial_header_1").text(get_string.tutorial_header_1);
+	$("#tutorial_title_1").text(get_string.tutorial_title_1);
+	$("#tutorial_paragraph_1").text(get_string.tutorial_paragraph_1);
+	//$("#ack_2").text(get_string.ack_2);
+	//$("#ack_2").text(get_string.ack_2);
+	
 	$("#theory_header").text(get_string.theory_header);
 	$("#theory_title_1").text(get_string.theory_title_1);
 	$("#theory_title_2").text(get_string.theory_title_2);
@@ -70,16 +79,16 @@ function updatelang() {
 	$("#theory_paragraph_31").text(get_string.theory_paragraph_31);
 	$("#theory_paragraph_32_title").text(get_string.theory_paragraph_32_title);
 	$("#theory_paragraph_32").text(get_string.theory_paragraph_32);
-	$("#theory_paragraph_33_def1_title").text(get_string.theory_paragraph_33_def1_title);
-	$("#theory_paragraph_33_def2_title").text(get_string.theory_paragraph_33_def2_title);
-	$("#theory_paragraph_33_def3_title").text(get_string.theory_paragraph_33_def3_title);
-	$("#theory_paragraph_33_def4_title").text(get_string.theory_paragraph_33_def4_title);
-	$("#theory_paragraph_33_def1").text(get_string.theory_paragraph_33_def1);
-	$("#theory_paragraph_33_def2").text(get_string.theory_paragraph_33_def2);
-	$("#theory_paragraph_33_def3").text(get_string.theory_paragraph_33_def3);
-	$("#theory_paragraph_33_def4").text(get_string.theory_paragraph_33_def4);
-	$("#theory_paragraph_34_title").text(get_string.theory_paragraph_34_title);
-	$("#theory_paragraph_34").text(get_string.theory_paragraph_34);
+	$("#theory_paragraph_33_title").text(get_string.theory_paragraph_33_title);
+	$("#theory_paragraph_33").text(get_string.theory_paragraph_33);
+	$("#theory_paragraph_34_def1_title").text(get_string.theory_paragraph_34_def1_title);
+	$("#theory_paragraph_34_def2_title").text(get_string.theory_paragraph_34_def2_title);
+	$("#theory_paragraph_34_def3_title").text(get_string.theory_paragraph_34_def3_title);
+	$("#theory_paragraph_34_def1").text(get_string.theory_paragraph_34_def1);
+	$("#theory_paragraph_34_def2").text(get_string.theory_paragraph_34_def2);
+	$("#theory_paragraph_34_def3").text(get_string.theory_paragraph_34_def3);
+	$("#theory_paragraph_35_title").text(get_string.theory_paragraph_35_title);
+	$("#theory_paragraph_35").text(get_string.theory_paragraph_35);
 	$("#theory_reference_header").text(get_string.theory_reference_header);
 	$("#theory_reference").text(get_string.theory_reference);
 }

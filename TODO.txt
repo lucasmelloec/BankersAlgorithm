@@ -1,6 +1,8 @@
-[]Botão de UNDO dos nºs nas tabelas
-[]Botão de aleatório
+[✓]Botão de UNDO dos nºs nas tabelas
+[✓]Botão de aleatório
 [✓]Tornar tabela de necessários alterável
+[✓]Resolver bug: Quando ocorre um deadlock e uma nova simulação
+é iniciada, os arrays nao são resetados.
 
 [✓]Denotar os 3 passos mais explicitamente (Na teoria)
 [✓]Sobre o algoritmo: 
@@ -11,3 +13,5 @@
 []Tutorial: Explicar a interface
 
 [✓]Referências à versão em inglês
+[]Consertar conflito no oriente
+[]Terminar doc e readme

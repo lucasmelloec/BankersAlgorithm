@@ -98,7 +98,7 @@ function loadButton(name, button_funct) {
     
     buttons.push({
         image: new Image(),
-        visibility: true,
+        active: true,
         x: 0,
         y: 0,
         funct: button_funct
@@ -132,7 +132,6 @@ function createText(text, textfont, maxWidth) {
 *   Retorno: sem retorno.
 */
 function draw() {
-    context.globalAlpha = 1;
     // Limpa a tela
     context.clearRect(0, 0, canvas.width, canvas.height);
     
@@ -144,10 +143,16 @@ function draw() {
         }
     }
     for (i = 0; i < buttons.length; i++) {
-        if(buttons[i].visibility == true) {
-            context.drawImage(buttons[i].image, buttons[i].x, buttons[i].y);
+        if(buttons[i].active == true) {
+            context.globalAlpha = 1;
         }
+        else {
+            context.globalAlpha = 0.3;
+        }
+        
+        context.drawImage(buttons[i].image, buttons[i].x, buttons[i].y);
     }
+    context.globalAlpha = 1;
     for (i = 0; i < texts.length; i++) {
         if(texts[i].visibility == true) {
             context.font = texts[i].font;
@@ -183,8 +188,10 @@ function collisions(x, y)
     var i;
     for(i = 0; i < buttons.length; i++) {
         if(x >= buttons[i].x && y >= buttons[i].y && x <= (buttons[i].x + buttons[i].image.width) && y <= (buttons[i].y + buttons[i].image.height) ) {
-            buttons[i].funct();
-            return;
+            if(buttons[i].active == true) {
+                buttons[i].funct();
+                return;
+            }
         }
     }
     for(i = 0; i < pseudoButtons.length; i++) {
@@ -212,10 +219,7 @@ function changeState(newState) {
         stateStack = [];
         editStack = [];
         
-        previousMatrix[0] = JSON.parse(JSON.stringify(allocationMatrix));
-        previousMatrix[1] = JSON.parse(JSON.stringify(demandMatrix));
-        
-        num_of_images = 7;
+        num_of_images = 9;
     
         loadImage("allocated_table");
         objects[0].x = 340;
@@ -512,17 +516,26 @@ function changeState(newState) {
         buttons[1].x = 320;
         buttons[1].y = 430;
         
+        loadButton("undo_button", undo_button);
+        buttons[2].x = 100;
+        buttons[2].y = 430;
+        buttons[2].active = false;
+        loadButton("auto_button", randomize_button);
+        buttons[3].x = 150;
+        buttons[3].y = 430;
+        
         createText(get_string.banker_init1, "18px sans-serif", 0);
         texts[32].x = 0;
         texts[32].y = 340;
         createText(get_string.banker_init2, "18px sans-serif", 0);
         texts[33].x = 0;
         texts[33].y = 358;
+        createText(get_string.banker_init3, "18px sans-serif", 0);
+        texts[34].x = 0;
+        texts[34].y = 378;
     }
     else if(newState == "BANKER_1_STATE") {
         standardLoad();
-        
-        num_of_images += 2;
         
         texts[26].color = "red";
         
@@ -536,13 +549,7 @@ function changeState(newState) {
 
         texts[31].color = "red";
 
-        loadButton("next_button", next_button);
-        buttons[0].x = 540;
-        buttons[0].y = 430;   
-        
-        loadButton("previous_button", previous_button);
-        buttons[1].x = 430;
-        buttons[1].y = 430;
+        buttons[2].active = false;
         
         createText(get_string.banker_iteract + stateStack[stack_i].iteraction, "20px sans-serif", 0);
         texts[32].x = 0;
@@ -567,12 +574,8 @@ function changeState(newState) {
     }
     else if(newState == "BANKER_IDLE_STATE") {
         standardLoad();
-        
-        num_of_images += 2;
 
-        loadButton("next_button", next_button);
-        buttons[0].x = 540;
-        buttons[0].y = 430;
+        buttons[2].active = false;
         
         createText(get_string.banker_iteract + stateStack[stack_i].iteraction, "20px sans-serif", 0);
         texts[32].x = 0;
@@ -597,20 +600,13 @@ function changeState(newState) {
     }
     else if(newState == "BANKER_1_SUCCESS_STATE") {
         standardLoad();
-        num_of_images += 2;
         
         var color_text = (stateStack[stack_i].current_process * 3) + 17;
         texts[color_text].color = "red";
         texts[color_text+1].color = "red";
         texts[color_text+2].color = "red";
 
-        loadButton("next_button", next_button);
-        buttons[0].x = 540;
-        buttons[0].y = 430;
-        
-        loadButton("previous_button", previous_button);
-        buttons[1].x = 430;
-        buttons[1].y = 430;
+        buttons[2].active = false;
         
         createText(get_string.banker_iteract + stateStack[stack_i].iteraction, "20px sans-serif", 0);
         texts[32].x = 0;
@@ -626,15 +622,7 @@ function changeState(newState) {
     else if(newState == "BANKER_1_FAIL_STATE") {
         standardLoad();
         
-        num_of_images += 2;
-
-        loadButton("next_button", next_button);
-        buttons[0].x = 540;
-        buttons[0].y = 430;
-        
-        loadButton("previous_button", previous_button);
-        buttons[1].x = 430;
-        buttons[1].y = 430;
+        buttons[0].active = false;
         
         createText(get_string.banker_1_fail1, "18px sans-serif", 0);
         texts[32].x = 0;
@@ -648,8 +636,6 @@ function changeState(newState) {
     }
     else if(newState == "BANKER_2_STATE") {
         standardLoad();
-        
-        num_of_images += 2;
         
         var color_text = (stateStack[stack_i].current_process * 3) + 17;
         texts[color_text].color = "red";
@@ -668,13 +654,7 @@ function changeState(newState) {
 
         texts[31].color = "red";
         
-        loadButton("next_button", next_button);
-        buttons[0].x = 540;
-        buttons[0].y = 430;
-        
-        loadButton("previous_button", previous_button);
-        buttons[1].x = 430;
-        buttons[1].y = 430;
+        buttons[2].active = false;
         
         createText(get_string.banker_iteract + stateStack[stack_i].iteraction, "20px sans-serif", 0);
         texts[32].x = 0;
@@ -690,8 +670,6 @@ function changeState(newState) {
     else if (newState == "BANKER_3_STATE") {
         standardLoad();
         
-        num_of_images += 2;
-        
         var color_text = (stateStack[stack_i].current_process * 3) + 17;
         texts[color_text].color = "red";
         texts[color_text+1].color = "red";
@@ -709,13 +687,7 @@ function changeState(newState) {
         
         texts[31].color = "red";
         
-        loadButton("next_button", next_button);
-        buttons[0].x = 540;
-        buttons[0].y = 430;
-    
-        loadButton("previous_button", previous_button);
-        buttons[1].x = 430;
-        buttons[1].y = 430;
+        buttons[2].active = false;
         
         createText(get_string.banker_iteract + stateStack[stack_i].iteraction, "20px sans-serif", 0);
         texts[32].x = 0;
@@ -734,14 +706,7 @@ function changeState(newState) {
     else if (newState == "END_STATE") {
         standardLoad();
         
-        num_of_images += 2;
-        
-        loadButton("previous_button", previous_button);
-        buttons[0].x = 430;
-        buttons[0].y = 430;
-        loadButton("reload_button", reload_button);
-        buttons[1].x = 320;
-        buttons[1].y = 430;
+        buttons[0].active = false;
         
         createText(get_string.banker_end1, "18px sans-serif", 0);
         texts[32].x = 0;
@@ -762,15 +727,8 @@ function changeState(newState) {
     else if (newState == "BANKER_IMPOSSIBLE") {
         standardLoad();
         
-        num_of_images += 2;
+        buttons[0].active = false;
     
-        loadButton("next_button", next_button);
-        buttons[0].x = 540;
-        buttons[0].y = 430;
-        loadButton("previous_button", previous_button);
-        buttons[1].x = 430;
-        buttons[1].y = 430;
-        
         createText(get_string.banker_imp1, "18px sans-serif", 0);
         texts[32].x = 0;
         texts[32].y = 340;
@@ -794,9 +752,6 @@ function next_button() {
         stack_i = 0;
     
         changeState(stateStack[0].state);
-    }
-    else if ((stack_i + 1) == stateStack.length) {
-        changeState("INIT_STATE");
     }
     else {
         stack_i += 1;
@@ -838,12 +793,16 @@ function randomize_button() {
     for(i = 0; i < demandMatrix.length; i++) {
         for(j = 0; j < demandMatrix[0].length; j++) {
             texts[(i * demandMatrix.length) + j].value = demandMatrix[i][j];
+            texts[ ((i * allocationMatrix.length) + j) + 17].value = allocationMatrix[i][j];
         }
     }
     for(i = 0; i < E.length; i++) {
         texts[14 + i].value = E[i];
         texts[29 + i].value = A[i];
     }
+    
+    // Faz o botão de undo desaparecer
+    buttons[2].active = false;
     
     draw();
 }
@@ -876,11 +835,17 @@ function claim_button(i) {
         allocationMatrix[j][k] = demandMatrix[j][k];
     }
     else {
+        var temp = JSON.parse(JSON.stringify(allocationMatrix));
+        temp[j][k] -= 1;
+        
         editStack.push({
             E: JSON.parse(JSON.stringify(E)),
-            allocationMatrix: JSON.parse(JSON.stringify(allocationMatrix)),
+            allocationMatrix: JSON.parse(JSON.stringify(temp)),
             demandMatrix: JSON.parse(JSON.stringify(demandMatrix))
         });
+        
+        // Faz o botão de undo aparecer
+        buttons[2].active = true;
     }
     
     texts[i + 17].value = allocationMatrix[j][k];
@@ -898,11 +863,17 @@ function demand_button(i) {
         demandMatrix[j][k] = E[k];
     }
     else {
+        var temp = JSON.parse(JSON.stringify(demandMatrix));
+        temp[j][k] -= 1;
+        
         editStack.push({
             E: JSON.parse(JSON.stringify(E)),
             allocationMatrix: JSON.parse(JSON.stringify(allocationMatrix)),
-            demandMatrix: JSON.parse(JSON.stringify(demandMatrix))
+            demandMatrix: JSON.parse(JSON.stringify(temp))
         });
+        
+        // Faz o botão de undo aparecer
+        buttons[2].active = true;
     }
     
     texts[i].value = demandMatrix[j][k];
@@ -919,11 +890,16 @@ function exist_button(i) {
         E[i] = 9;
     }
     else {
+        var temp = JSON.parse(JSON.stringify(E));
+        temp[i] -= 1;
+        
         editStack.push({
-            E: JSON.parse(JSON.stringify(E)),
+            E: JSON.parse(JSON.stringify(temp)),
             allocationMatrix: JSON.parse(JSON.stringify(allocationMatrix)),
             demandMatrix: JSON.parse(JSON.stringify(demandMatrix))
         });
+        // Faz o botão de undo aparecer
+        buttons[2].active = true;
     }
     
     texts[i + 14].value = E[i];
@@ -932,16 +908,38 @@ function exist_button(i) {
 }
 
 function undo_button() {
-    var last_edit = editStack.pop();
-    
-    E = JSON.parse(JSON.stringify(last_edit.E));
-    A = E.slice(0);
-    allocationMatrix = JSON.parse(JSON.stringify(last_edit.allocationMatrix));
-    demandMatrix = JSON.parse(JSON.stringify(last_edit.demandMatrix));
+    if(editStack.length > 0) {
+        var last_edit = editStack.pop();
+        
+        E = JSON.parse(JSON.stringify(last_edit.E));
+        A = E.slice(0);
+        allocationMatrix = JSON.parse(JSON.stringify(last_edit.allocationMatrix));
+        demandMatrix = JSON.parse(JSON.stringify(last_edit.demandMatrix));
+        
+        var i;
+        var j;
+        for(i = 0; i < demandMatrix.length; i++) {
+            for(j = 0; j < demandMatrix[0].length; j++) {
+                texts[(i * demandMatrix.length) + j].value = demandMatrix[i][j];
+                texts[ ((i * allocationMatrix.length) + j) + 17].value = allocationMatrix[i][j];
+            }
+        }
+        for(i = 0; i < E.length; i++) {
+            texts[14 + i].value = E[i];
+            texts[29 + i].value = A[i];
+        }
+        
+        if(editStack.length == 0) {
+            // Faz o botão de undo desaparecer
+            buttons[2].active = false;
+        }
+        
+        draw();
+    }
 }
 
 function standardLoad() {
-    num_of_images = 5;
+    num_of_images = 8;
     
     loadImage("allocated_table");
     objects[0].x = 340;
@@ -1085,4 +1083,14 @@ function standardLoad() {
     createText(stateStack[stack_i].A[2], "30px sans-serif", 0);
     texts[31].x = 212;
     texts[31].y = 165;
+    
+    loadButton("next_button", next_button);
+    buttons[0].x = 540;
+    buttons[0].y = 430;
+    loadButton("previous_button", previous_button);
+    buttons[1].x = 430;
+    buttons[1].y = 430;
+    loadButton("reload_button", reload_button);
+    buttons[2].x = 320;
+    buttons[2].y = 430;
 }

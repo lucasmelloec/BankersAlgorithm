@@ -9,8 +9,6 @@ var demandMatrix = [ // Quantos recursos de cada tipo o processo irá pedir dura
     [0, 0, 0]
 ];
 
-var previousMatrix = [];
-
 var terminated = {};
 
 var P = [0, 0, 0];
@@ -50,9 +48,6 @@ function banker() {
                 iteraction: null,
                 state: "BANKER_IMPOSSIBLE"
             });
-            
-            allocationMatrix = JSON.parse(JSON.stringify(previousMatrix[0]));
-            demandMatrix = JSON.parse(JSON.stringify(previousMatrix[1]));
             
             return false;
         }
@@ -140,9 +135,6 @@ function banker() {
                 iteraction: iteraction,
                 state: "BANKER_1_FAIL_STATE"
             });
-            
-            allocationMatrix = JSON.parse(JSON.stringify(previousMatrix[0]));
-            allocationMatrix = JSON.parse(JSON.stringify(previousMatrix[1]));
             
             return false;
         }

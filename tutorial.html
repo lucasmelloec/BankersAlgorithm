@@ -9,9 +9,6 @@
 	<link rel="icon" href="img/icon.png" type="image/png">
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script type="text/javascript" src="js/changelang.js"></script>
-	<script type="text/javascript" src="js/draw.js"></script>
-	<script type="text/javascript" src="js/banker.js"></script>
-	<script type="text/javascript" src="js/auxiliary.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			changelang();
@@ -32,16 +29,38 @@
 			</center>
 		</div>
 	</header>
-	<center>
-		<div id="canvas_block">
-			<canvas id="banker_canvas" width="640" height="480"></canvas>
-		</div>
-	</center>
+			<div class="header_box">
+				<p id="tutorial_header_1"></p>
+			</div>
+				<div class="title_box">	<!-- How this thing works? -->
+					<p id="tutorial_title_1"></p>	<!-- Interface -->
+				</div>
+					<div class="paragraph_box">
+						<p id="tutorial_paragraph_1"></p>
+					</div>
+					
+					<center>
+						<img src="img/interface.png" alt="Interface" max-width="480" max-height="auto">
+					</center>
+				
+				<div class="title_box">	<!-- Banker's algorithm -->
+					<p id="theory_title_3"></p>
+				</div>
+				
+					<div class="paragraph_box">
+						<h3 id="theory_paragraph_33_title"></h3>
+						<p id="theory_paragraph_33"></p>
+						<dl>
+							<dt><b id="theory_paragraph_34_def1_title"></b></dt>
+								<dd id="theory_paragraph_34_def1"></dd>
+						</dl>
+					</div>
+			<br>
 	<footer>
 		<div class="button_bar">
 			<center>
-				<a href="index.html?lang=en" class="button">English</a>
-				<a href="index.html?lang=pt" class="button">Português</a>
+				<a href="theory.html?lang=en" class="button">English</a>
+				<a href="theory.html?lang=pt" class="button">Português</a>
 			</center>
 		</div>
 	</footer>
